@@ -8,7 +8,7 @@ namespace student_management.Data.Service
         Task<Student> GetById(string id);
         Task Add(Student student);
         Task<Student> Update(string id, Student newStudent);
-        void Delete(string id);
+        Task Delete(string id);
 
     }
 }

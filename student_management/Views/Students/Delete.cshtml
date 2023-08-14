@@ -1,14 +1,16 @@
 ﻿@model student_management.Models.Student
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Delete a record";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Information Student</h1>
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+
 
 <div>
-    <h4>Student name: @Model.FirstName @Model.LastName</h4>
     <hr />
     <div class="col-md-8 offset-2">
     <dl class="row">
@@ -49,10 +51,11 @@
             @Html.DisplayFor(model => model.Gender)
         </dd>
     </dl>
-    <div>
-    <a class="btn btn-outline-success" asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a class= "btn btn-outline-secondary" asp-action="Index">Show All</a>
-    </div>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a class="btn btn-outline-success" asp-action="Index">Show All</a>
+    </form>
 </div>
 </div>
-

@@ -16,12 +16,15 @@ namespace student_management.Models
         public string LastName { get; set; }
         [Display(Name ="Ngày Sinh")]
         [Required(ErrorMessage = "Date of birth is required")]
-        public DateTime DataOfBirth { get; set; }
+        public DateTime DataOfBirth { get; set; }    
         [Display(Name ="Địa Chỉ")]
         [Required(ErrorMessage = "Address is required")]
         public string Address { get; set;}
         [Display(Name ="Giới Tính")]
         [Required(ErrorMessage ="Gender is required")]
         public string Gender { get; set;}
+
+        //Relationships
+        public List<StudentCourse> StudentCourses { get; set; }
     }
 }

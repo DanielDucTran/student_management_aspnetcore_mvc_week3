@@ -1,0 +1,26 @@
+﻿@model int
+
+<h2>Enroll in Course</h2>
+@if(ViewData.ModelState.IsValid)
+{
+<form method="post">
+    <div class="form-group">
+        <label for="studentId">Select Student:</label>
+        <select class="form-control" id="studentId" name="studentId">
+            @foreach (var student in ViewBag.Students)
+            {
+                <option value="@student.Value">@student.Text</option>
+            }
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Enroll</button>
+</form>
+}else 
+{
+    <div class="alert alert-danger">
+        @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+        {
+            <p>@error.ErrorMessage</p>
+        }
+    </div>
+}

@@ -13,7 +13,8 @@ options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectio
 
 //Service
 builder.Services.AddScoped<IStudentsService, StudentsService>();
-
+builder.Services.AddScoped<ICoursesService, CoursesService>();
+builder.Services.AddScoped<IRegistersService, RegistersService>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
