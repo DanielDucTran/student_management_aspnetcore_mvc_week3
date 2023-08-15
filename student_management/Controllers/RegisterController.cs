@@ -28,7 +28,7 @@ namespace student_management.Controllers
             }
             var students = _service.GetStudents();
             ViewBag.CourseId = courseId;
-            ViewBag.Students = new SelectList((System.Collections.IEnumerable)students, "Id", "LastName");
+            ViewBag.Students = new SelectList((System.Collections.IEnumerable)students, "Id","Id");
             return View();
         }
         [HttpPost]
@@ -46,7 +46,7 @@ namespace student_management.Controllers
                 ModelState.AddModelError("", "Bạn đã đăng kí khóa học này!");
                 var students = _service.GetStudents();
                 ViewBag.CourseId = courseId;
-                ViewBag.Students = new SelectList(students,"Id", "LastName");
+                ViewBag.Students = new SelectList(students,"Id","Id");
                 return View();
             }
             if (_service.IsCourseFull(courseId))
@@ -54,12 +54,15 @@ namespace student_management.Controllers
                 ModelState.AddModelError("", "Môn học đã đầy slot!");
                 var students = _service.GetStudents();
                 ViewBag.CourseId = courseId;
-                ViewBag.Students = new SelectList(students, "Id", "LastName");
+                ViewBag.Students = new SelectList(students, "Id"," Id");
                 return View();
             }
+            
             _service.EnrollStudentInCourse(studentId,courseId);
 
             return RedirectToAction(nameof(Index));
         }
+        
+
     }
 }

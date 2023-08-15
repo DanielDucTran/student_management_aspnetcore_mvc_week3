@@ -36,9 +36,9 @@ namespace student_management.Data.Service
             return result;
         }
 
-        public async Task<Student> Update(string id, Student newStudent)
+        public async Task<Student> Update(Student newStudent)
         {
-            _context.Update(newStudent);
+                _context.Update(newStudent);
             await _context.SaveChangesAsync();
             return newStudent;
         }

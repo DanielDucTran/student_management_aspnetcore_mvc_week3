@@ -62,9 +62,10 @@ namespace student_management.Controllers
             
         }
         [HttpPost]
-        public async Task<IActionResult> Edit(string id, [Bind("Id,FirstName, LastName, DataOfBirth, Address, Gender")] Student student)
+        public async Task<IActionResult> Edit([Bind("Id,FirstName, LastName, DataOfBirth, Address, Gender")] Student student)
         {
-            await _service.Update(id, student);
+            
+            await _service.Update(student);
             return RedirectToAction(nameof(Index));
         }
 
